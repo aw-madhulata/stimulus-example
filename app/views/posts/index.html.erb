@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+<h1>Posts</h1>
+<div data-controller="post-sort">
+  <label>Posts:</label>
+  <select name="sort_by" id="sort_by" data-action="post-sort#update" data-post-sort-target="select">
+      <option value="">Select posts</option>
+    <% @posts.each do |post| %>
+      <option value="<%= post.id %>"><%= post.title %></option>
+    <% end %>
+  </select>
+</div>
+<%= render partial: "posts/post" %>
+
+<%= link_to "New post", new_post_path %>
